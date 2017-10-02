@@ -14,3 +14,8 @@ Symfony
 # Fixtures create
 
 + php bin/console doctrine:fixtures:load
+
+# Cache clear
+
++ bin/console cache:clear --env=prod --no-warmup 
++ bin/console cache:clear --env=dev --no-warmup
