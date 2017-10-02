@@ -14,7 +14,3 @@ Symfony
 # Fixtures create
 
 + php bin/console doctrine:fixtures:load
-
-
-
-
