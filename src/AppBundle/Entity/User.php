@@ -10,7 +10,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity
  * @UniqueEntity(fields="email", message="Email already taken")
- * @UniqueEntity(fields="username", message="Username already taken")
  */
 class User implements UserInterface, \Serializable
 {
@@ -27,6 +26,11 @@ class User implements UserInterface, \Serializable
      * @Assert\Email()
      */
     private $email;
+
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    private $isActive;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -48,17 +52,16 @@ class User implements UserInterface, \Serializable
      */
     private $password;
 
-    /**
-     * @ORM\Column(name="is_active", type="boolean")
-     */
-    private $isActive;
-
-
     public function __construct()
     {
         $this->isActive = true;
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
+    }
+
+    public function isEnabled()
+    {
+        return $this->isActive;
     }
 
     public function getEmail()
@@ -149,6 +152,22 @@ class User implements UserInterface, \Serializable
             // see section on salt below
             // $this->salt
             ) = unserialize($serialized);
+
+    }
+
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
     }
 
 }
