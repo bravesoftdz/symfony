@@ -14,6 +14,11 @@ class SecurityController extends Controller
      */
     public function loginAction(Request $request, AuthenticationUtils $authUtils)
     {
+
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            throw $this->createAccessDeniedException('You are already logged in');
+        }
+
         // get the login error if there is one
         $error = $authUtils->getLastAuthenticationError();
 
