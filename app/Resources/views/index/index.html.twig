@@ -1,16 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if app.user %}
-        Welcome: {{ app.user.username }}
-        <br>
-        <a href="{{ logout_path('main') }}">Logout</a>
-    {% else %}
-        <a href="{{ path('login') }}">Login</a>
-        <br>
-         <a href="{{ path('registration') }}">Registration</a>
-    {% endif %}
-
     <div id="wrapper">
         <div id="container">
             <div id="welcome">
