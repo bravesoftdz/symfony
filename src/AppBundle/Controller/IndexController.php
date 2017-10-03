@@ -13,7 +13,7 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        // replace this example code with whatever you need
+//        $user = $this->get('security.token_storage')->getToken()->getUser();
         return $this->render('index/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
