@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -51,6 +52,11 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=64)
      */
     private $password;
+
+    /**
+     * @Recaptcha\IsTrue
+     */
+    public $recaptcha;
 
     public function __construct()
     {
