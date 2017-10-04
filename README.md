@@ -15,7 +15,24 @@ Symfony
 
 + php bin/console doctrine:fixtures:load
 
+# Install assets from bundle
+
++ php app/console assets:install
+
 # Cache clear
 
 + bin/console cache:clear --env=prod --no-warmup 
 + bin/console cache:clear --env=dev --no-warmup
+
+# Configuration Reference & Dumping
+
++  php bin/console config:dump-reference twig
+
+# Services search
+
++ php bin/console debug:container logger
+
+# Get Route List
+
++ php bin/console debug:route
+
