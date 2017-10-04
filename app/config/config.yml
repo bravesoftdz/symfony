@@ -67,3 +67,10 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+ewz_recaptcha:
+    enabled: false
+    public_key:  126808444608116
+    private_key: f2cf29f214056e1c11e3ad6b573d913a
+    # Not needed as "%kernel.default_locale%" is the default value for the locale key
+    locale_key:  %kernel.default_locale%
