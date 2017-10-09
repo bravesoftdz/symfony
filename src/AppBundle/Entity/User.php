@@ -22,6 +22,11 @@ class User implements UserInterface, \Serializable
     private $id;
 
     /**
+     * @ORM\Column(name="fb_id", type="string", length=255)
+     */
+    private $fbId;
+
+    /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank()
      * @Assert\Email()
@@ -63,6 +68,16 @@ class User implements UserInterface, \Serializable
         $this->isActive = true;
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
+    }
+
+    public function getFbId()
+    {
+        return $this->fbId;
+    }
+
+    public function setFbId($fbId)
+    {
+        $this->fbId = $fbId;
     }
 
     public function isEnabled()
