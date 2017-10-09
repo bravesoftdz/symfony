@@ -6,7 +6,7 @@ parameters:
 services:
     # default configuration for services in *this* file
     _defaults:
-                                                                                                # automatically injects dependencies in your services
+        # automatically injects dependencies in your services
         autowire: true
         # automatically registers your services as commands, event subscribers, etc.
         autoconfigure: true
@@ -29,7 +29,11 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    AppBundle\Service\SocialUser:
+        public: true
+
+
     # add more services, or override services that need manual wiring
-    # AppBundle\Service\ExampleService:
-    #     arguments:
-    #         $someArgument: 'some_value'
+        # AppBundle\Service\ExampleService:
+        #     arguments:
+        #       $someArgument: 'some_value'

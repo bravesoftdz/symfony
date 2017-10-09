@@ -9,9 +9,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @UniqueEntity(fields="email", message="Email already taken")
- */
+*/
 class User implements UserInterface, \Serializable
 {
     /**
@@ -22,9 +22,9 @@ class User implements UserInterface, \Serializable
     private $id;
 
     /**
-     * @ORM\Column(name="fb_id", type="string", length=255)
+     * @ORM\Column(name="fb_id", type="string", length=255, nullable=true)
      */
-    private $fbId;
+    private $fbId = null;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
@@ -75,7 +75,7 @@ class User implements UserInterface, \Serializable
         return $this->fbId;
     }
 
-    public function setFbId($fbId)
+    public function setFbId($fbId = null)
     {
         $this->fbId = $fbId;
     }
