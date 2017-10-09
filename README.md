@@ -35,4 +35,3 @@ Symfony
 # Get Route List
 
 + php bin/console debug:route
-
